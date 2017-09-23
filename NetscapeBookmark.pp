@@ -17,12 +17,12 @@
 %token  title_        <(?i)title>
 %token _title         </(?i)title>
 
-%token  subtitle_     <(?i)h1>
-%token _subtitle      </(?i)h1>
+%token  h1_           <(?i)h1>
+%token _h1            </(?i)h1>
 
 // Bookmark list
-%token  list_         <(?i)dl><(?i)p>
-%token _list          </(?i)dl><(?i)p>
+%token  dl_           <(?i)dl><(?i)p>
+%token _dl            </(?i)dl><(?i)p>
 
 // Bookmark entry
 %token  dt_           <(?i)dt>
@@ -41,7 +41,7 @@
 #document:
     doctype()
     title()
-    subtitle()
+    h1()
     bookmarks()
 
 #doctype:
@@ -50,11 +50,11 @@
 #title:
     ::title_:: <string> ::_title::
 
-#subtitle:
-    ::subtitle_:: <string> ::_subtitle::
+#h1:
+    ::h1_:: <string> ::_h1::
 
 #bookmarks:
-    ::list_:: ( bookmark() | bookmarks() )* ::_list::
+    ::dl_:: ( bookmark() | bookmarks() )* ::_dl::
 
 #bookmark:
     ::dt_:: a() dd()?
