@@ -1,5 +1,8 @@
 // Netscape Bookmark grammar
+
+// Skip extra whitespace and comments
 %skip   space         \s
+%skip   comment       <!--[\s\S\n]*?-->
 
 // Generic tokens
 %token  string         \w+(\s\w+)*
