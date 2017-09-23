@@ -1,4 +1,17 @@
 {
+    "name": "virtualtam//hoa-netscape-bookmark-parser",
+    "description": "Generic Netscape bookmark parser",
+    "license": "MIT",
+    "homepage": "https://github.com/virtualtam/hoa-netscape-bookmark-parser",
+    "authors": [
+        {
+            "name": "VirtualTam",
+            "email": "virtualtam@flibidi.net",
+            "homepage": "https://github.com/virtualtam",
+            "role": "Developer"
+        }
+    ],
+    "keywords": ["bookmark", "link", "netscape", "parse"],
     "require": {
         "hoa/compiler": "^3.17"
     }
