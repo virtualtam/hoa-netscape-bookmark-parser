@@ -3,6 +3,7 @@
 // Skip extra whitespace and comments
 %skip   space         \s
 %skip   comment       <!--[\s\S\n]*?-->
+%skip   meta          <META [\s\S]*?>
 
 // Generic tokens
 %token  string        \w+(\s*\w*\p{P}*)*
