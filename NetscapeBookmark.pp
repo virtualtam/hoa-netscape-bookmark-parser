@@ -5,7 +5,7 @@
 %skip   comment       <!--[\s\S\n]*?-->
 
 // Generic tokens
-%token  string         \w+(\s\w+)*
+%token  string        \w+(\s*\w*\p{P}*)*
 
 // Doctype
 %token  doctype_       <!(?i)doctype -> doctype
@@ -57,10 +57,13 @@
     ::list_:: ( bookmark() | bookmarks() )* ::_list::
 
 #bookmark:
-    ::dt_:: a()
+    ::dt_:: a() dd()?
 
 #a:
     ::a_:: attribute()* ::_a:: <string> ::_a::
 
 #attribute:
     <name> ::value_:: <value> ::_value::
+
+#dd:
+    ::dd_:: <string>
