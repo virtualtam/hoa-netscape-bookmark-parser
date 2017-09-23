@@ -20,12 +20,29 @@
 %token  subtitle_     <(?i)h1>
 %token _subtitle      </(?i)h1>
 
+// Bookmark list
+%token  list_         <(?i)dl><(?i)p>
+%token _list          </(?i)dl><(?i)p>
+
+// Bookmark entry
+%token  dt_           <(?i)dt>
+%token  dd_           <(?i)dd>
+
+%token  a_            <(?i)a         -> a
+%skip   a:space       \s
+%token  a:name        \w+
+%token  a:value_      ="             -> v
+%token  v:value       [^"]+
+%token  v:_value      "              -> a
+%token  a:_a          >              -> default
+%token _a             </(?i)a>
 
 // Document structure
 #document:
     doctype()
     title()
     subtitle()
+    bookmarks()
 
 #doctype:
     ::doctype_:: <string> ::_t::
@@ -35,3 +52,15 @@
 
 #subtitle:
     ::subtitle_:: <string> ::_subtitle::
+
+#bookmarks:
+    ::list_:: ( bookmark() | bookmarks() )* ::_list::
+
+#bookmark:
+    ::dt_:: a()
+
+#a:
+    ::a_:: attribute()* ::_a:: <string> ::_a::
+
+#attribute:
+    <name> ::value_:: <value> ::_value::
