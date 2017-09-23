@@ -20,3 +20,9 @@ Documentation:
 PCRE:
 - https://stackoverflow.com/questions/6804951/regex-to-remove-comments-in-xml-file-in-eclipse-java
 - https://superuser.com/questions/1153239/regex-to-match-xml-comments
+- https://stackoverflow.com/questions/20320719/constructing-regex-pattern-to-match-sentence
+- https://stackoverflow.com/questions/3973602/regex-match-any-punctuation-character-except-and
+- https://secure.php.net/manual/en/book.pcre.php
+    - https://secure.php.net/manual/en/regexp.reference.meta.php
+    - https://secure.php.net/manual/en/regexp.reference.escape.php
+    - https://secure.php.net/manual/en/regexp.reference.unicode.php
