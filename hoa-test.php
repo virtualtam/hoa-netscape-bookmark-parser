@@ -5,6 +5,7 @@ require_once 'vendor/autoload.php';
 $compiler = Hoa\Compiler\Llk\Llk::load(new Hoa\File\Read('NetscapeBookmark.pp'));
 
 // Parse data
+$ast = $compiler->parse(file_get_contents('tests/input/netscape_basic.htm'));
 $ast = $compiler->parse(file_get_contents('tests/input/netscape_nested.htm'));
 
 // Dump the AST
